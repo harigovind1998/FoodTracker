@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		479EA064230F4FDA00B6EDD4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 479EA063230F4FDA00B6EDD4 /* Default-568h@2x.png */; };
 		47B66C7323065769008F8FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B66C7223065769008F8FB1 /* AppDelegate.swift */; };
 		47B66C7523065769008F8FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B66C7423065769008F8FB1 /* ViewController.swift */; };
 		47B66C7823065769008F8FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47B66C7623065769008F8FB1 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		479EA063230F4FDA00B6EDD4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		47B66C6F23065769008F8FB1 /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47B66C7223065769008F8FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47B66C7423065769008F8FB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,9 +61,11 @@
 		47B66C6623065769008F8FB1 = {
 			isa = PBXGroup;
 			children = (
+				479EA063230F4FDA00B6EDD4 /* Default-568h@2x.png */,
 				47B66C7123065769008F8FB1 /* FoodTracker */,
 				47B66C862306576B008F8FB1 /* FoodTrackerTests */,
 				47B66C7023065769008F8FB1 /* Products */,
+				47B66C7E2306576B008F8FB1 /* Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,7 +86,6 @@
 				47B66C7623065769008F8FB1 /* Main.storyboard */,
 				47B66C792306576B008F8FB1 /* Assets.xcassets */,
 				47B66C7B2306576B008F8FB1 /* LaunchScreen.storyboard */,
-				47B66C7E2306576B008F8FB1 /* Info.plist */,
 			);
 			path = FoodTracker;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47B66C7D2306576B008F8FB1 /* LaunchScreen.storyboard in Resources */,
+				479EA064230F4FDA00B6EDD4 /* Default-568h@2x.png in Resources */,
 				47B66C7A2306576B008F8FB1 /* Assets.xcassets in Resources */,
 				47B66C7823065769008F8FB1 /* Main.storyboard in Resources */,
 			);
@@ -361,7 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FoodTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = FoodTracker/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
