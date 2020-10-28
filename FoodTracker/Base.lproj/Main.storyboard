@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,67 +13,67 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="lIY-qT-iVx">
-                                <rect key="frame" x="20" y="63.999999999999972" width="374" height="427.33333333333326"/>
+                                <rect key="frame" x="20" y="63.999999999999972" width="350" height="461.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5R-xy-1RZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="20.333333333333332"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="85.666666666666671" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Meal Name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EgP-YL-6Xk">
-                                        <rect key="frame" x="0.0" y="29.333333333333329" width="374" height="30"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="29.333333333333329" width="350" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQP-W8-CWp">
-                                        <rect key="frame" x="0.0" y="68.333333333333343" width="151" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQP-W8-CWp">
+                                        <rect key="frame" x="0.0" y="72.333333333333343" width="151" height="30"/>
                                         <state key="normal" title="Set Default Label Text"/>
                                         <connections>
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZsC-o9-TEk"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="TpW-5n-JST">
-                                        <rect key="frame" x="0.0" y="107.33333333333337" width="320" height="320"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="DefaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="TpW-5n-JST">
+                                        <rect key="frame" x="0.0" y="111.33333333333337" width="350" height="350"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="TpW-5n-JST" secondAttribute="height" multiplier="1:1" id="WEf-oW-ea4"/>
+                                            <constraint firstAttribute="width" secondItem="TpW-5n-JST" secondAttribute="height" multiplier="1:1" id="88k-v5-VDK"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="S4g-Uh-sbi" appends="YES" id="mbI-Zr-SE1"/>
+                                            <outletCollection property="gestureRecognizers" destination="pE7-S9-T5c" appends="YES" id="Q6t-qV-HYJ"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="TpW-5n-JST" firstAttribute="top" secondItem="YQP-W8-CWp" secondAttribute="bottom" constant="9" id="0Vi-5H-2lS"/>
+                                    <constraint firstAttribute="trailing" secondItem="TpW-5n-JST" secondAttribute="trailing" id="2wY-SS-Kpu"/>
                                     <constraint firstAttribute="trailing" secondItem="EgP-YL-6Xk" secondAttribute="trailing" id="gva-FO-Dfv"/>
                                 </constraints>
                                 <variation key="heightClass=regular-widthClass=compact" spacing="9"/>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lIY-qT-iVx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="IWB-hg-Loo"/>
                             <constraint firstAttribute="trailing" secondItem="lIY-qT-iVx" secondAttribute="trailing" constant="20" symbolic="YES" id="XUb-g2-n4j"/>
                             <constraint firstItem="lIY-qT-iVx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="l4f-pT-mR5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="mealNameLabel" destination="k5R-xy-1RZ" id="gFX-lL-cJS"/>
                         <outlet property="nameTextField" destination="EgP-YL-6Xk" id="HyK-iM-2WX"/>
-                        <outlet property="photoImageView" destination="TpW-5n-JST" id="tvf-xw-k3Q"/>
+                        <outlet property="photoImageView" destination="TpW-5n-JST" id="Hhg-nc-cnL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="S4g-Uh-sbi">
+                <tapGestureRecognizer id="pE7-S9-T5c">
                     <connections>
-                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="mpc-ox-vvP"/>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="YGi-UF-Jbb"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -83,6 +81,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Default.png" width="320" height="568"/>
+        <image name="DefaultImage" width="540" height="540"/>
     </resources>
 </document>
