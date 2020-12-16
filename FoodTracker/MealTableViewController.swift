@@ -18,7 +18,14 @@ class MealTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
         
-        loadSampleMeals()
+        
+        if let savedMeals = loadMeals(){
+            // Loading saved meals
+            meals += savedMeals
+        } else{
+            // Load sample data
+            loadSampleMeals()
+        }
     }
 
     // MARK: - Table view data source
@@ -64,10 +71,11 @@ class MealTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             meals.remove(at: indexPath.row)
+            saveMeals()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
 
@@ -88,6 +96,7 @@ class MealTableViewController: UITableViewController {
 
     
     // MARK: - Navigation
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch(segue.identifier ?? ""){
@@ -125,12 +134,23 @@ class MealTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        saveMeals()
     }
 
 
     
     //MARK: Private Methods
-    func loadSampleMeals(){
+    private func saveMeals(){
+        let isSaveSuccessful = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        if isSaveSuccessful{
+            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+        }else{
+            os_log("Meals could not be saved.", log: OSLog.default, type: .error)
+        }
+    }
+    
+    
+    private func loadSampleMeals(){
         let photo1 = UIImage(named: "meal1")
         let photo2 = UIImage(named: "meal2")
         let photo3 = UIImage(named: "meal3")
@@ -146,6 +166,9 @@ class MealTableViewController: UITableViewController {
         }
         
         meals += [meal1,meal2,meal3]
-        
+    }
+    
+    private func loadMeals() -> [Meal]?{
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
     }
 }
