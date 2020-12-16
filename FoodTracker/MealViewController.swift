@@ -7,18 +7,36 @@
 //
 
 import UIKit
+import os.log
 
 class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     //MARK: Properties
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveMealButton: UIBarButtonItem!
+    
+    
+    /*
+     This is passed by 'MealViewController' in the prepare(for:sender) function
+     */
+    var meal: Meal?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Sets the delegate of the nameTextField object as the istance of ViewController
         nameTextField.delegate = self
+        
+        if let meal = meal{
+            navigationItem.title = meal.name
+            nameTextField.text = meal.name
+            photoImageView.image = meal.image
+            ratingControl.rating = meal.rating
+        }
+        
+        
+        updateSaveButton()
     }
     
     //MARK: UITextFieldDelegate
@@ -28,7 +46,13 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        updateSaveButton()
+        navigationItem.title = nameTextField.text
+    }
+    
+    // Disable save button while editing
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        saveMealButton.isEnabled = false
     }
     
     // MARK: UIIMagePickerControllerDelegate
@@ -50,6 +74,26 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        guard let button = sender as? UIBarButtonItem, button === saveMealButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        let name = nameTextField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        
+        // Create a meal object
+        meal = Meal(name: name, image: photo, rating: rating)
+
+
+    }
+    
     //MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         
@@ -64,6 +108,24 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        let isPresentingInAddMode = presentingViewController is UINavigationController
+        if isPresentingInAddMode{
+            dismiss(animated: true, completion: nil)
+        }else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }else{
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+    }
+    
+    //MARK: Private Methods
+    private func updateSaveButton(){
+        let text = nameTextField.text ?? "";
+        saveMealButton.isEnabled = !text.isEmpty
+        
     }
 }
 
